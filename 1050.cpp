@@ -6,7 +6,7 @@ using namespace std;
 
 
 int a[10010];
-int b[110][110];
+int b[10010][10010];
 
 bool cmp(int a,int b){
 	return a>b;
@@ -40,12 +40,12 @@ int main(){
 	int N;
 	cin>>N;
 	int s=(int)sqrt(N);
-	for(int i=1;i<s;i++){
+	for(int i=1;i<=s;i++){
 		if(N%i==0)
 			n=i;
 	}
 	m=N/n;
-	cout<<n<<" "<<m<<endl;
+	//cout<<n<<" "<<m<<endl;
 	for(int i=0;i<N;i++){
 		cin>>a[i];
 	}
