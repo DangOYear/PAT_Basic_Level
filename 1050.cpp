@@ -1,62 +1,55 @@
-#include<iostream>
-#include<algorithm>
+#include<stdio.h>
 #include<math.h>
-using namespace std;
+#include<algorithm>
 
 
 
-int a[10010];
-int b[10010][10010];
+int N;
+int m,n;
+#define MAX_N 11000
+
+int a[MAX_N][MAX_N];
+int num[MAX_N];
 
 bool cmp(int a,int b){
 	return a>b;
 }
 
-int cur;
-int n,m;
-
-void screwMatrix(int A,int B){
-	if(B>=(n+1)/2)	return ;
-	for(int j=A;j<n-A;j++){
-		b[B][j]=a[cur];
-		cur++;
-	}
-	for(int i=B+1;i<m-B;i++){
-		b[i][n-A-1]=a[cur];
-		cur++;
-	}
-	for(int i=n-A-2;i>=A;i--){
-		b[m-B-1][i]=a[cur];
-		cur++;
-	}
-	for(int i=m-B-2;i>B;i--){
-		b[i][A]=a[cur];
-		cur++;
-	}
-	screwMatrix(A+1,B+1);
-}
-
-int main(){
-	int N;
-	cin>>N;
-	int s=(int)sqrt(N);
-	for(int i=1;i<=s;i++){
-		if(N%i==0)
+void cal_m_n(){
+	int sqt=(int)sqrt(N);
+	for(int i=1;i<=sqt;i++){
+		if(N%sqt==0)
 			n=i;
 	}
 	m=N/n;
-	//cout<<n<<" "<<m<<endl;
-	for(int i=0;i<N;i++){
-		cin>>a[i];
-	}
-	sort(a,a+N,cmp);
-	cur=0;
-	screwMatrix(0,0);
+}
+
+void print(){
 	for(int i=0;i<m;i++){
 		for(int j=0;j<n;j++){
-			cout<<b[i][j];
-			if(j!=n-1)	cout<<" ";
+			printf("%d",a[i][j]);
+			if(j!=n-1)
+				printf(" ");
 		}
-		cout<<endl;
+		printf("\n");
 	}
+}
+
+void solve(int x,int y,){
+	 
+}
+
+int main(){
+	
+	scanf("%d",&N);
+	cal_m_n();
+	for(int i=0;i<N;i++){
+		scanf("%d",&num[i]);
+	}
+	
+	sort(a,a+N,cmp);
+	
+	//printf("%d %d",m,n);
+	solve(0,0);
+	print();
 }
