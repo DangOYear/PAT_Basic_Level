@@ -3,4 +3,4 @@ project(PAT_Basic_Level)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(PAT_Basic_Level 1081.cpp)
+add_executable(PAT_Basic_Level 1080.cpp 1090.cpp)
